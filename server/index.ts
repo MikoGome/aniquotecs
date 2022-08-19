@@ -12,8 +12,11 @@ app.get('/', (req: Request, res: Response) => {
   res.sendFile(path.resolve('build', 'index.html'));
 });
 
+app.get('/bundle.js', (req: Request, res: Response) => {
+  res.sendFile(path.resolve('build', 'bundle.js'));
+});
+
 app.post('/api/search', async (req: Request, res: Response) => {
-  console.log('body', req.body);
   const body: bodyType = req.body;
   const search: string = body.character + '+' + body.anime;
   const imgUrl = await webscrape(search);
