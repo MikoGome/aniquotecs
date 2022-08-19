@@ -1,7 +1,12 @@
 import puppeteer from 'puppeteer';
 
 async function webscrape(params: string): Promise<string> {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    'args' : [
+      '--no-sandbox',
+      '--disable-setuid-sandbox'
+    ]
+  });
   const page = await browser.newPage();
   const URL = `https://www.google.com/search?q=${params}&sxsrf=ALiCzsZCha0uJqjiuzH3sLIuBD-ZIhLQfw:1660941518663&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjboNmp4dP5AhVxKkQIHXLEC-IQ_AUoAXoECAIQAw`;
   await page.goto(URL);
