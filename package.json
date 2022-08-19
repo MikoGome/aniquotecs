@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server-build/index.js",
-    "build": "tsc && webpack --mode=production",
     "server": "nodemon --exec npx ts-node server/index.ts",
     "dev": "concurrently \"webpack serve --mode=development --open\" \"nodemon --exec npx ts-node server/index.ts\""
   },
