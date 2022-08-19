@@ -20,7 +20,6 @@ const App = ():JSX.Element  => {
         })
           .then(response => response.json())
           .then((imgUrl: string) => {
-            console.log('imgUrl', imgUrl);
             setImage(imgUrl);
           });
       });
