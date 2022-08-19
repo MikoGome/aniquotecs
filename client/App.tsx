@@ -11,18 +11,19 @@ const App = ():JSX.Element  => {
       .then(response => response.json())
       .then((anime: animeType) => {
         setAnime(anime);
-        // fetch('/api/search', {
-        //   method: 'POST',
-        //   headers: {
-        //     "Content-Type": "application/json"
-        //   },
-        //   body: JSON.stringify(anime)
-        // })
-        //   .then(response => response.json())
-        //   .then((imgUrl: string) => {
-        //     setImage(imgUrl);
-        //   });
-      });
+        fetch('/api/search', {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(anime)
+        })
+          .then(response => response.json())
+          .then((imgUrl: string) => {
+            setImage(imgUrl);
+          });
+      })
+      .catch(e => console.log(e));
   }, []);
 
   return(
