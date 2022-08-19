@@ -16,12 +16,12 @@ app.get('/bundle.js', (req: Request, res: Response) => {
   res.sendFile(path.resolve('build', 'bundle.js'));
 });
 
-// app.post('/api/search', async (req: Request, res: Response) => {
-//   const body: bodyType = req.body;
-//   const search: string = body.character + '+' + body.anime;
-//   const imgUrl = await webscrape(search);
-//   res.json(imgUrl);
-// });
+app.post('/api/search', async (req: Request, res: Response) => {
+  const body: bodyType = req.body;
+  const search: string = body.character + '+' + body.anime;
+  const imgUrl = await webscrape(search);
+  res.json(imgUrl);
+});
 
 app.listen(PORT, () => {
   console.log('server is listening to PORT ' + PORT);
