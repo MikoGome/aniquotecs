@@ -1,6 +1,7 @@
 import puppeteer from 'puppeteer';
 
 async function webscrape(params: string): Promise<string> {
+  console.log(params);
   const browser = await puppeteer.launch({
     'args' : [
       '--no-sandbox',
