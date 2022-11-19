@@ -18,7 +18,7 @@ app.get('/bundle.js', (req: Request, res: Response) => {
 
 app.post('/api/search', async (req: Request, res: Response) => {
   const body: bodyType = req.body;
-  const search: string = body.character + '+' + body.anime;
+  const search: string = body.character.split(' ').concat(body.anime.split(' ')).join('+');
   const imgUrl = await webscrape(search);
   res.json(imgUrl);
 });

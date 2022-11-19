@@ -8,10 +8,12 @@ async function webscrape(params: string): Promise<string> {
     ]
   });
   const page = await browser.newPage();
-  const URL = `https://www.google.com/search?q=${params}&sxsrf=ALiCzsZCha0uJqjiuzH3sLIuBD-ZIhLQfw:1660941518663&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjboNmp4dP5AhVxKkQIHXLEC-IQ_AUoAXoECAIQAw`;
+  
+  const URL:string = `https://www.bing.com/images/search?q=${params}&qft=+filterui%3aimagesize-large&form=AWIR&first=1&tsc=ImageHoverTitle`;
   await page.goto(URL);
+  await page.waitForSelector('img.mimg');
   const imgUrl:string = await page.evaluate(() => {
-    const imageEl = document.querySelector('.rg_i') as HTMLImageElement;
+    const imageEl = document.querySelector('img.mimg') as HTMLImageElement;
     return imageEl.getAttribute('src') as string;
   });
   
