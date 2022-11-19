@@ -9,7 +9,8 @@ async function webscrape(params: string): Promise<string> {
   });
   const page = await browser.newPage();
   
-  const URL:string =  `https://www.bing.com/images/search?q=${params}&qs=n&form=QBIR&qft=+filterui%3Aimagesize-large+filterui%3Aphoto-transparent&sp=-1&pq=${params}&sc=0-27&cvid=900E0B8009244C0DA2F10FC844099845&ghsh=0&ghacc=0&first=1&tsc=ImageHoverTitle&cw=1177&ch=920`;
+  const URL:string =  `https://www.bing.com/images/search?q=${params}&qft=+filterui:imagesize-large&form=IRFLTR&first=1&tsc=ImageHoverTitle`;
+  console.log(URL);
   await page.goto(URL);
   await page.waitForSelector('li[data-idx="1"] img.mimg');
   const imgUrl:string = await page.evaluate(() => {
