@@ -20,6 +20,9 @@ const App = ():JSX.Element  => {
         })
           .then(response => response.json())
           .then((imgUrl: string) => {
+            if(imgUrl.startsWith('http')) {
+              imgUrl = imgUrl.split('/revision')[0];
+            }
             setImage(imgUrl);
           });
       })
